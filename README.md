@@ -1,2 +1,2 @@
 # Lepton-CSS
-A CSS framework
+An open-source material based CSS framework.

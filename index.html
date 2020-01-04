@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <html>
     <head>
         <link rel="stylesheet" href="Lepton/lepton.css">
@@ -5,6 +7,24 @@
     </head>
 
     <body>
+        <script src="Lepton/lepton.js"></script>
+        <nav>
+            <i id="hamburger" onclick="toggleDrawer(1)" class="material-icons md-24 menu">menu</i>
+            <p>Title</p>
+            <i class="material-icons md-24 icons">more_vert</i>
+            <i class="material-icons md-24 icons">search</i>
+            <i class="material-icons md-24 icons">share</i>
+        </nav>
+
+        <div id="nav-drawer" class="nav-drawer">
+            <p class="title">Title</p>
+            <p class="subtitle">Subtitle</p>
+
+            <ul>
+                <li><i class="material-icons md-24 menu">mail</i><a>Some text</a></li>
+            </ul>
+        </div>
+
         <h1>Heading 1</h1>
         <h2>Heading 2</h2>
         <h3>Heading 3</h3>
@@ -18,6 +38,23 @@
         <button class="contained with-icon"><i class="material-icons md-18">star</i>Button with icon</button>
         <button class="outline">Outline button</button>
         <button class="text">Text button</button>
+        <button class="floating-action"><i class="material-icons">add</i></button>
+
+        <br>
+        <br>
+
+        <form>
+            <label class="checkbox-container">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <br><br><br><br>
+            <input class="slider" type="range">
+        </form>
+
+        <br>
+        <br>
+
     </body>
 
 </html>

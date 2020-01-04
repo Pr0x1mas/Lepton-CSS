@@ -7,7 +7,35 @@
 :root {
     --main-bg-color: #FFFFFF;
     --main-color: #6200eeff;
+    --light-main-color: rgba(99, 0, 238, 0.219);
+    --secondary-color: #e53935;
 }
+
+*{
+    transition: 0.2s all;
+}
+
+/* ----PAGE-SIZING----*/
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+/*----MATERIAL ICON SPEC----*/
+
+/* Rules for sizing the icon. */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
 
 
 /*----FONTS----*/
@@ -56,8 +84,68 @@ button {
     font-size: 0.875rem;
     text-transform: uppercase;
     letter-spacing: 1.25px;
-    transition: 0.2s all;
 }
+
+/*----PADDING----*/
+body > a, body > p, body > h1, body > h2, body > h3, body > h4, body > h5, body > h6, body > button, form > * {
+    margin-left: 24px;
+}
+
+/*----CHECKBOXES----*/
+
+.checkbox-container {
+    display: block;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    background-color: #eee;
+    border: 4px solid #0000008a;
+    border-radius: 4px;
+  }
+  
+  .checkbox-container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  .checkbox-container input:checked ~ .checkmark {
+    background-color: var(--main-color);
+    border: 4px solid var(--main-color);;
+  }
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  .checkbox-container .checkmark:after {
+    left: 7px;
+    top: 2px;
+    width: 5px;
+    height: 14px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+  }
 
 /*----BUTTONS----*/
 button {
@@ -90,7 +178,7 @@ button.contained .with-icon {
 button.contained i {
     position: relative;
     bottom: 1px;
-    text-align: left;
+    float: left;
     padding-right: 8px;
     vertical-align: middle;
 }
@@ -109,18 +197,123 @@ button.text {
     padding-right: 8px;
 }
 
-/*----MATERIAL ICON SPEC----*/
+/*----FLOATING ACTION BUTTONS----*/
+button.floating-action {
+    position: fixed;
+    height: 56px;
+    width: 56px;
+    max-width: 56px;
+    min-width: 56px;
+    border: none;
+    border-radius: 28px;
+    background-color: var(--secondary-color);
+    overflow: hidden;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
+    color: var(--main-bg-color);
+}
 
-/* Rules for sizing the icon. */
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
+button.floating-action i {
+    position: relative;
+    top: 2px;
+}
 
-/* Rules for using icons as black on a light background. */
-.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
-.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+/*----NAVIGATION BAR----*/
 
-/* Rules for using icons as white on a dark background. */
-.material-icons.md-light { color: rgba(255, 255, 255, 1); }
-.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+nav {
+    position: fixed;
+    height: 56px;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: var(--main-color);
+    color: var(--main-bg-color);
+    padding: 16px;
+    top: 0px;
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    z-index: 0;
+}
+
+nav i.menu {
+    float: left;
+    padding-right: 32px;
+    z-index: 1;
+    position: relative;
+}
+
+nav i.icons {
+    position: relative;
+    float: right;
+    padding-left: 24px;
+    bottom: 18px;
+}
+
+nav p {
+    padding: 0px;
+    margin: 0px;
+    position: relative;
+    top: 2px;
+    z-index: 0;
+}
+
+nav i {
+    cursor: pointer;
+}
+
+/*----NAVIGATION DRAWER-----*/
+
+.nav-drawer {
+    height: 100%;
+    max-width: 256px;
+    width: 256px;
+    z-index: 99999;
+    background-color: var(--main-bg-color);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    padding-left: 16px;
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+    margin-left: -100%;
+    transition: margin-left 0.5s;
+}
+
+.nav-drawer .title {
+    font-size: 20px;
+    padding-top: 16px;
+    vertical-align: bottom;
+    margin: 0px;
+    color: #000000de
+}
+
+.nav-drawer .subtitle {
+    font-size: 13dp;
+    color: #0000008a;
+}
+
+.nav-drawer ul, li {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.nav-drawer ul {
+    padding-left: 4px;
+    border-radius: 2px;
+}
+
+.nav-drawer ul:hover{
+    color: var(--main-color);
+    background-color: var(--light-main-color);
+    width: 90%
+}
+
+.nav-drawer a {
+    color: #000000de;
+    color: inherit;
+    position: relative;
+    bottom: 6px;
+    left: 16px;
+}
+
+.nav-drawer i{
+    color: #0000008a;
+    color: inherit;
+}
