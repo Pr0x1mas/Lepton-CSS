@@ -97,17 +97,17 @@ body > a, body > p, body > h1, body > h2, body > h3, body > h4, body > h5, body 
     display: block;
     position: relative;
     cursor: pointer;
-  }
+}
   
-  .checkbox-container input {
+.checkbox-container input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
     height: 0;
     width: 0;
-  }
+}
   
-  .checkmark {
+.checkmark {
     position: absolute;
     top: 0;
     left: 0;
@@ -116,28 +116,28 @@ body > a, body > p, body > h1, body > h2, body > h3, body > h4, body > h5, body 
     background-color: #eee;
     border: 4px solid #0000008a;
     border-radius: 4px;
-  }
+}
   
-  .checkbox-container:hover input ~ .checkmark {
+.checkbox-container:hover input ~ .checkmark {
     background-color: #ccc;
-  }
+}
   
-  .checkbox-container input:checked ~ .checkmark {
+.checkbox-container input:checked ~ .checkmark {
     background-color: var(--main-color);
     border: 4px solid var(--main-color);;
-  }
+}
   
-  .checkmark:after {
+.checkmark:after {
     content: "";
     position: absolute;
     display: none;
-  }
+}
   
-  .checkbox-container input:checked ~ .checkmark:after {
+.checkbox-container input:checked ~ .checkmark:after {
     display: block;
-  }
+}
   
-  .checkbox-container .checkmark:after {
+.checkbox-container .checkmark:after {
     left: 7px;
     top: 2px;
     width: 5px;
@@ -145,7 +145,50 @@ body > a, body > p, body > h1, body > h2, body > h3, body > h4, body > h5, body 
     border: solid white;
     border-width: 0 3px 3px 0;
     transform: rotate(45deg);
-  }
+}
+  
+/*----RADIO BUTTONS----*/
+.radio-container {
+    display: block;
+    position: relative;
+    cursor: pointer;
+}
+
+.radio-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.radiomark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border: 4px solid #0000008a;
+    border-radius: 50%;
+}
+
+.radio-container:hover input ~ .radiomark {
+    background-color: #ccc;
+}
+  
+.radio-container input:checked ~ .radiomark {
+    background-color: var(--main-color);
+    border: 4px solid var(--main-color);;
+}
+
+.radio-container .radiomark:after {
+    left: 7px;
+    top: 2px;
+    width: 5px;
+    height: 14px;
+    border: solid white;
+}
 
 /*----BUTTONS----*/
 button {
@@ -198,11 +241,9 @@ button.text {
 }
 
 /*----FLOATING ACTION BUTTONS----*/
-button.floating-action {
+button.floating-action, button.floating-action-with-text {
     position: fixed;
     height: 56px;
-    width: 56px;
-    max-width: 56px;
     min-width: 56px;
     border: none;
     border-radius: 28px;
@@ -210,11 +251,21 @@ button.floating-action {
     overflow: hidden;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
     color: var(--main-bg-color);
+	float: right;
+	right: 8px;
+	bottom: 8px;
+	vertical-align: middle
 }
 
-button.floating-action i {
+button.floating-action i, button.floating-action-with-text i {
     position: relative;
-    top: 2px;
+    bottom: 1px;
+    vertical-align: middle;
+
+}
+
+button.floating-action-with-text i {
+	margin-right: 8px;
 }
 
 /*----NAVIGATION BAR----*/
@@ -256,6 +307,11 @@ nav p {
 
 nav i {
     cursor: pointer;
+}
+
+nav *:link, nav *:visited {
+	color: var(--main-bg-color);
+	text-decoration: none;
 }
 
 /*----NAVIGATION DRAWER-----*/
