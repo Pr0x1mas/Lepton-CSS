@@ -355,7 +355,7 @@ nav *:link, nav *:visited {
     border-radius: 2px;
 }
 
-.nav-drawer ul:hover{
+.nav-drawer li:hover{
     color: var(--main-color);
     background-color: var(--light-main-color);
     width: 90%
