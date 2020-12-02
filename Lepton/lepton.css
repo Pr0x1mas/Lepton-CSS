@@ -197,6 +197,7 @@ button {
     padding-left: 16px;
     padding-right: 16px;
     border-radius: 4px;
+	font-weight: bold;
 }
 
 button:hover{
@@ -231,6 +232,7 @@ button.outline {
     color: var(--main-color);
     border-style: solid;
     border-color: #0000001e;
+	background-color: inherit;
 }
 
 button.text {
@@ -238,6 +240,7 @@ button.text {
     color: var(--main-color);
     padding-left: 8px;
     padding-right: 8px;
+	background-color: inherit;
 }
 
 /*----FLOATING ACTION BUTTONS----*/
@@ -313,6 +316,7 @@ nav *:link, nav *:visited {
 	color: var(--main-bg-color);
 	text-decoration: none;
 }
+
 /*----NAVIGATION DRAWER-----*/
 
 #nav-drawer {
